@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     
@@ -17,7 +17,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+    //Handle text field's inputs through delegate callbacks
+    nameTextField.delegate = self
+    //on line 11, made this class adopt the UITextFieldDelegate protocol. Then, on line 22, assigned the instance of this class  as the delegate of the textfield I am attacking.
     }
 
     //MARK: Actions
