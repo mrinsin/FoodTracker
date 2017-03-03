@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    
     //MARK: Properties
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -20,7 +21,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     //Handle text field's inputs through delegate callbacks
     nameTextField.delegate = self
-    //on line 11, made this class adopt the UITextFieldDelegate protocol. Then, on line 22, assigned the instance of this class  as the delegate of the textfield I am attacking.
+    //When a ViewController instance is loaded, it sets itself as the delegate of its nameTextField property.
+
+    }
+    
+    //MARK: UITextFieldDelegate
+    
+    //When the return or done key is tapped
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        //Hide the keyboard
+        textField.resignFirstResponder()
+        
+        //make this method return a boolean indicating whther or not the system should process the tapping of the return key
+        return true
+        
+    }
+    
+    //after the textfield resigns its responder status
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        mealNameLabel.text = textField.text
     }
 
     //MARK: Actions
