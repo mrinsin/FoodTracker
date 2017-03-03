@@ -19,10 +19,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    //Handle text field's inputs through delegate callbacks
-    nameTextField.delegate = self
-    //When a ViewController instance is loaded, it sets itself as the delegate of its nameTextField property.
+    // Handle text field's inputs through delegate callbacks
+    // When a ViewController instance is loaded, it sets itself as the delegate of its nameTextField property.
+        nameTextField.delegate = self
 
+        
     }
     
     //MARK: UITextFieldDelegate
@@ -38,7 +39,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    //after the textfield resigns its responder status
+    //after the textfield resigns its first responder status
     func textFieldDidEndEditing(_ textField: UITextField) {
         mealNameLabel.text = textField.text
     }
